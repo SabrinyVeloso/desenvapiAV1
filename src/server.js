@@ -1,4 +1,5 @@
 import express from "express";
+import tarefas from "./dados.js";
 
 const app = express();
 const PORTA = 3000;
@@ -8,11 +9,6 @@ app.use(express.json());
 app.listen(PORTA, () => {
   console.log(`Servidor rodando na porta ${PORTA}`);
 });
-
-const tarefas = [
-  { id: 1, titulo: "Estudar Node", concluida: false },
-  { id: 2, titulo: "Fazer telas no Figma", concluida: true }
-];
 
 app.get("/tarefas", (req, res) => {
   res.status(200).json(tarefas);
